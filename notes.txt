@@ -1,0 +1,55 @@
+PART 1 (HuffmanTest)
+
+Good inputs:
+-   text files that completely matched (pass)
+
+Bad inputs:
+-   text files had different characters
+        Example: 'andrew' vs 'andrxw'
+        Example: 'hello world' vs 'hellp wornd'
+        (would fail at first incorrect character)
+
+-   text files had different lengths
+        Example: 'andrew' vs 'andre'
+        Example: 'hello world how are you' vs 'hello world how'
+        (would fail at last character in output file)
+
+-   empty text files
+        Example: input file content was 'andrew' and output file content was ''
+        (would fail and give first character of input and null at position 0 as the 'character' for output)
+
+-   input files that don't exist
+        Example: 'java HuffTest input.txt output.txt' (real files) vs 'java HuffTest input.txt outp.text' (invalid inputs)
+        Example: inputting an invalid number of arguments
+
+*********************************************************************************************************************
+PART 2 (Encode/Decode)
+
+-   both programs were tested in sections
+-   would log a statement for each block of code such as a for loop
+-       Example: System.out.println("beginning of loop"); is logged before loop starts
+                 and System.out.println("loop complete"); after loop is completed
+-   logging statements minimizes errors and optimizes the development process
+
+Encode:
+-   write an input in the input file
+        A simple example: "hi"
+-   run the program and check the output file
+-   always keep in mind that the output looks long because of end-of-transmission character encoded at the end
+-   note that the ASCII values in 'h' & 'i' are 104 & 105; value for end-of-transmission is 4
+-   copy Huffman definition of 104, 105, and end-of-transmission
+-   paste the definitions in the order from line 40, directly under the output in the output file
+-   this makes it easy to compare the output from the program with the correct translation
+-   tests include inputs capital letters, spaces, punctuation, random symbols, numbers
+
+Decode: 
+-   run Encode program
+-   copy encoded text from Encode and paste it into input file
+        Example: Huffman code for "hi" should be "0110000001011000011011" according to the codebook; paste Huffman code in input.txt
+-   run Decode program
+-   if output of Decode matches the input of Encode, then Decode program was successful
+-   run input tests of different encoded texts from Encode
+-   once all tests are successful, do one final test
+-   copy and paste a few random definitions from the codebook file into input.txt
+-   keep track of ASCII values of each definition
+-   verify decoded text in output file match the characters of all the ASCII values
